@@ -39,8 +39,8 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        
-       
+
+
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
@@ -51,9 +51,9 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-       
 
-        
+
+
 
         public void Update(Car car)
         {
@@ -63,7 +63,7 @@ namespace DataAccess.Concrete.EntityFramework
                 updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }
-                       
+
         }
     }
 }

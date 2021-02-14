@@ -41,13 +41,13 @@ namespace DataAccess.Concrete.EntityFramework
 
         public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
         {
-            using (RentCarContext context=new RentCarContext())
+            using (RentCarContext context = new RentCarContext())
             {
                 return filter == null ? context.Set<Color>().ToList() : context.Set<Color>().Where(filter).ToList();
             }
         }
 
-        
+
 
         public void Update(Color entity)
         {

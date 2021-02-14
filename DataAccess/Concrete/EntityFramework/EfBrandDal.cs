@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public void Add(Brand entity)
         {
-            using (RentCarContext context=new RentCarContext())
+            using (RentCarContext context = new RentCarContext())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
@@ -33,7 +33,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public Brand Get(Expression<Func<Brand, bool>> filter)
         {
-            using (RentCarContext context=new RentCarContext())
+            using (RentCarContext context = new RentCarContext())
             {
                 return context.Set<Brand>().SingleOrDefault(filter);
             }
@@ -41,7 +41,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null)
         {
-            using (RentCarContext context=new RentCarContext())
+            using (RentCarContext context = new RentCarContext())
             {
                 return filter == null ? context.Set<Brand>().ToList() : context.Set<Brand>().Where(filter).ToList();
             }
@@ -58,6 +58,6 @@ namespace DataAccess.Concrete.EntityFramework
         }
     }
 
-        
-    
+
+
 }
