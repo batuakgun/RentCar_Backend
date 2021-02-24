@@ -15,7 +15,7 @@ namespace ConsoleUI
 
 
 
-            // RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            //RentalManager rentalManager = new RentalManager(new EfRentalDal());
             //AddNewRental(rentalManager);
 
             //var result2 = rentalManager.GetAll();
@@ -59,7 +59,7 @@ namespace ConsoleUI
 
         private static void AddNewRental(RentalManager rentalManager)
         {
-            rentalManager.Add(new Rental { CarId = 5 });
+            rentalManager.Add(new Rental { CarId = 2, CustomerId = 2, RentDate = new DateTime(2017, 02, 21) });
         }
     }
 }
