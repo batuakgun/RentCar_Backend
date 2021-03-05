@@ -35,7 +35,7 @@ namespace Business.Concrete
                 {
                     if (result.ReturnDate == null)
                     {
-                        return new ErrorResult("Maalesef teslim edilmemiş araba var.");
+                        return new ErrorResult(Messages.CarUndelivered);
                     }
                 }
             }
@@ -70,7 +70,7 @@ namespace Business.Concrete
         public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
-            return new SuccessResult("Updated");
+            return new SuccessResult(Messages.RentalUpdated);
         }
     }
 }
