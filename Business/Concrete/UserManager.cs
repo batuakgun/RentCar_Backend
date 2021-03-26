@@ -4,7 +4,7 @@ using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
+using Core.Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -36,6 +36,16 @@ namespace Business.Concrete
         public IDataResult<List<User>> GetAll()
         {
             throw new NotImplementedException();
+        }
+
+        public User GetByMail(string email)
+        {
+            return _userDal.Get(u => u.Email == email);
+        }
+
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
         }
 
         public IDataResult<User> GetRentalByRentalId(int userId)

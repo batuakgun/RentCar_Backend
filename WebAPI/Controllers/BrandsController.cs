@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
-using Core.Entities.Concrete;
-using Microsoft.AspNetCore.Http;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,59 +10,53 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class BrandsController : ControllerBase
     {
-        IUserService _userService;
-
-        public UsersController(IUserService userService)
+         IBrandService _brandService;
+        public BrandsController(IBrandService brandService)
         {
-            _userService = userService;
+            _brandService = brandService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _userService.GetAll();
+            var result = _brandService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+
+       
+
         [HttpPost("add")]
-        public IActionResult Add(User user)
+        public IActionResult Add(Brand brand)
         {
-            var result = _userService.Add(user);
+            var result = _brandService.Add(brand);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+
         [HttpPost("delete")]
-        public IActionResult Delete(User user)
+        public IActionResult Delete(Brand brand)
         {
-            var result = _userService.Delete(user);
+            var result = _brandService.Delete(brand);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+
         [HttpPost("update")]
-        public IActionResult Update(User user)
+        public IActionResult Update(Brand brand)
         {
-            var result = _userService.Update(user);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-        [HttpGet("getCarDetails")]
-        public IActionResult GetUserDetails()
-        {
-            var result = _userService.GetUserDetails();
+            var result = _brandService.Update(brand);
             if (result.Success)
             {
                 return Ok(result);

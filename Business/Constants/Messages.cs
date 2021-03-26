@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -37,7 +38,19 @@ namespace Business.Constants
         public static string ImagesListed = "Fotoğraflar listelendi";
         public static string ImagesUpdated = "Fotoğraf günellendi";
         public static string MaxError = "Maksimum sayıya ulaşıldı";
+        public static string AuthorizationDenied = "Yetkiniz yok";
 
-
+        public static string UserRegistered { get; internal set; }
+        public static User UserNotFound { get; internal set; }
+        public static User PasswordError { get; internal set; }
+        public static string SuccessfulLogin { get; internal set; }
+        public static string UserAlreadyExists { get; internal set; }
+        public static string AccessTokenCreated { get; internal set; }
+        public static string ProductUpdated { get; internal set; }
+        public static string BrandListed { get; internal set; }
+        public static string BrandG { get; internal set; }
+        public static string BrandAdded { get; internal set; }
+        public static string BrandDeleted { get; internal set; }
+        public static string BrandUpdated { get; internal set; }
     }
 }
