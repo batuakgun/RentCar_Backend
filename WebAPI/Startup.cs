@@ -37,17 +37,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //services.AddSingleton<ICarService,CarManager>();
-            //services.AddSingleton<ICarDal, EfCarDal>();
-
-            //services.AddSingleton<ICustomerService, CustomerManager>();
-            //services.AddSingleton<ICustomerDal, EfCustomerDal>();
-
-            //services.AddSingleton<IRentalService,RentalManager>();
-            //services.AddSingleton<IRentalDal, EfRentalDal>();
-
-            //services.AddSingleton<IUserService, UserManager>();
-            //services.AddSingleton<IUserDal, EfUserDal>();
+            
 
             services.AddCors();
 
@@ -80,12 +70,15 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.ConfigureCustomExceptionMiddleware();
 
-            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             app.UseAuthentication();
 

@@ -9,6 +9,7 @@ using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Utilities.Security.Hashing;
 
 namespace Business.Concrete
 {
@@ -33,25 +34,48 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserDeleted);
         }
 
+        public IResult EditProfile(UserForUpdateDto user)
+        {
+            byte[] passwordHash;
+            byte[] passwordSalt;
+
+            HashingHelper.CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
+
+            var userInfo = new User()
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                Status = true
+            };
+
+            _userDal.Update(userInfo);
+            return new SuccessResult();
+        }
+
         public IDataResult<List<User>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
 
-        public User GetByMail(string email)
+        public IDataResult<User> GetById(int userId)
         {
-            return _userDal.Get(u => u.Email == email);
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Id == userId));
         }
 
-        public List<OperationClaim> GetClaims(User user)
+        public IDataResult<User> GetByMail(string email)
         {
-            return _userDal.GetClaims(user);
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
         }
 
-        public IDataResult<User> GetRentalByRentalId(int userId)
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
         }
+
 
         public IDataResult<List<UserDetailDto>> GetUserDetails()
         {

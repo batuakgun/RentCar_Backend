@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,17 +41,21 @@ namespace Business.Constants
         public static string MaxError = "Maksimum sayıya ulaşıldı";
         public static string AuthorizationDenied = "Yetkiniz yok";
 
-        public static string UserRegistered { get; internal set; }
-        public static User UserNotFound { get; internal set; }
-        public static User PasswordError { get; internal set; }
-        public static string SuccessfulLogin { get; internal set; }
-        public static string UserAlreadyExists { get; internal set; }
-        public static string AccessTokenCreated { get; internal set; }
-        public static string ProductUpdated { get; internal set; }
-        public static string BrandListed { get; internal set; }
+        public static string UserRegistered = "Başarılı Kayıt";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Şifre Yanlış";
+        public static string SuccessfulLogin = "Başarılı";
+        public static string UserAlreadyExists ="Kullanıcı zaten var";
+        public static string AccessTokenCreated = "Başarıyla Giriş Yaptınız";
+        public static string ProductUpdated = "Ürün Güncellendi";
+        public static string BrandListed = "Markalar Listelendi";
         public static string BrandG { get; internal set; }
-        public static string BrandAdded { get; internal set; }
-        public static string BrandDeleted { get; internal set; }
-        public static string BrandUpdated { get; internal set; }
+        public static List<CarDetailDto> NoCar { get; internal set; }
+
+        public static string BrandAdded = "Marka eklendi";
+        public static string BrandDeleted = "Marka silindi";
+        public static string BrandUpdated = "Marka Güncellendi";
+        public static string ColorListed = "Renkler listelendi";
+        public static string CardExist = "Kredi kartı var";
     }
 }

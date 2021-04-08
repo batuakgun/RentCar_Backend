@@ -16,12 +16,12 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car{CarId = 1, BrandId = 1, ColorId = 1, DailyPrice = 175, ModelYear="2018", Descriptions = " Renault Megane "},
-                new Car{CarId = 2, BrandId = 2, ColorId = 2, DailyPrice = 120, ModelYear="2019", Descriptions = " Fiat Egea "},
-                new Car{CarId = 3, BrandId = 3, ColorId = 4, DailyPrice = 320, ModelYear="2020", Descriptions = " Mercedes-Benz A180d "},
-                new Car{CarId = 4, BrandId = 4, ColorId = 4, DailyPrice = 245, ModelYear="2019", Descriptions = " Volkswagen Passat "},
-                new Car{CarId = 5, BrandId = 5, ColorId = 5, DailyPrice = 300, ModelYear="2017", Descriptions = " BMW 116i "},
-                new Car{CarId = 6, BrandId = 6, ColorId = 3, DailyPrice = 180, ModelYear="2018", Descriptions = " Opel Astra "}
+                new Car{CarId = 1, BrandId = 1, ColorId = 1, DailyPrice = 175, ModelYear=2018, Descriptions = " Renault Megane "},
+                new Car{CarId = 2, BrandId = 2, ColorId = 2, DailyPrice = 120, ModelYear=2019, Descriptions = " Fiat Egea "},
+                new Car{CarId = 3, BrandId = 3, ColorId = 4, DailyPrice = 320, ModelYear=2020, Descriptions = " Mercedes-Benz A180d "},
+                new Car{CarId = 4, BrandId = 4, ColorId = 4, DailyPrice = 245, ModelYear=2019, Descriptions = " Volkswagen Passat "},
+                new Car{CarId = 5, BrandId = 5, ColorId = 5, DailyPrice = 300, ModelYear=2017, Descriptions = " BMW 116i "},
+                new Car{CarId = 6, BrandId = 6, ColorId = 3, DailyPrice = 180, ModelYear=2018, Descriptions = " Opel Astra "}
             };
         }
         
@@ -56,7 +56,17 @@ namespace DataAccess.Concrete.InMemory
             return _cars.Where(c => c.BrandId == BrandId).ToList();
         }
 
+        public CarDetailDto GetCarDetail(int carId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetCarDetails(Expression<Func<CarDetailDto, bool>> filter = null)
         {
             throw new NotImplementedException();
         }
